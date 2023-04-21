@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+   <link rel="stylesheet" href="style.css"> 
+</head>
+
+<body>
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+        integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+        crossorigin="anonymous"></script>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.js"
+        integrity="sha512-+tu0+vUXyZX+S51npa//IN6znNTLZsBoy8mXn9WzHxfBqYMy6gOzzfTK0VqZf9O171RY9AJviHDokCnvEq8+1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    
+       <div id="contendor-titulo">
+        <img src="./assets/logo-Red-Bull.png" alt="Titulo del formulario">
+        <p><span class="texto1"> Fill this data</span><br><span class="texto2">to get your reward</span></p>
+       </div>
+       
+       <div id="contendor-form">
+           <form class="mi-form">
+               <input type="text" name="Name" id="nombre" placeholder="Name">
+               <input type="email" name="Email" id="correo" placeholder="Email">
+               <button type="button" class="button" id="submit">Send</button>
+            </form>            
+        </div>
+        
+<div id="contendor-final" style="display: none;">
+    <p><span class="textofinal1"> Thank you for playing</span><br><span class="textofinal2">See you soon</span></p>
+    <img src="./assets/logo-Red-Bull.png" alt="Imagen Final">
+    </div>
+        
+<script src="./sketch.js"></script>
+        
+</body>
+
+</html>
