@@ -235,6 +235,7 @@ switch (currentMupiscreen) {
 
 
     function mouseClicked(){
+      getUser()
       if (mouseX > 0 && mouseX < 430 && mouseY > 0 && mouseY < 768 && currentMupiscreen === 3) {
         console.log('Clikeado');
         toro.flap()
@@ -273,3 +274,11 @@ toro.flap(flapMupi)
 })
 
 
+
+async function getUser() {
+  
+  const res = await fetch('/get-user')
+  const data =  await res.json()
+  console.log(data);
+
+}

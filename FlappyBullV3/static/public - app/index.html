@@ -13,10 +13,6 @@
     <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
         integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
         crossorigin="anonymous"></script>
-
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.js"
-        integrity="sha512-+tu0+vUXyZX+S51npa//IN6znNTLZsBoy8mXn9WzHxfBqYMy6gOzzfTK0VqZf9O171RY9AJviHDokCnvEq8+1A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     
        <div id="contendor-titulo">
         <img src="./assets/logo-Red-Bull.png" alt="Titulo del formulario">
@@ -24,10 +20,15 @@
        </div>
        
        <div id="contendor-form">
-           <form class="mi-form">
+           <form class="mi-form" id="maiform">
                <input type="text" name="Name" id="nombre" placeholder="Name">
                <input type="email" name="Email" id="correo" placeholder="Email">
-               <button type="button" class="button" id="submit">Send</button>
+               <label class="material-checkbox">
+                <input type="checkbox" id="checkbox">
+                <span class="checkmark"></span>
+                I agree to the data privacy policy
+              </label>
+               <button type="submit" class="button" id="submit" disabled>Send</button>
             </form>            
         </div>
         

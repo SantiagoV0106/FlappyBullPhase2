@@ -1,42 +1,53 @@
-import { express, Server, cors, os, SerialPort, ReadlineParser } from './dependencies.js'
-const SERVER_IP = "192.168.1.28";//CAMBIAR IP SIEMPRE
+import { express, Server, cors, os, SerialPort, ReadlineParser, dotenv} from './dependencies.js'
+import userRoutes from './routes/userRoutes.js'
+import dashboardRoutes from './routes/dashboardRoutes.js'
 
+
+const SERVER_IP = "192.168.1.28";//CAMBIAR IP SIEMPRE
+dotenv.config()
+const PORT = process.env.PORT;
 const expressApp = express(); 
-const PORT = 5050;
+const STATIC_APP = express.static('./static/public - app')
+const STATIC_MUPI = express.static('./static/public - mupi')
+const STATIC_DASH = express.static('./static/public - dashboard')
 
 expressApp.use(cors({ origin: "*" }));
 expressApp.use(express.json()) 
-expressApp.use('/app', express.static('public - app'));
-expressApp.use('/mupi', express.static('public - mupi'));
+expressApp.use('/app', STATIC_APP);
+expressApp.use('/mupi', STATIC_MUPI);
+expressApp.use('/dashboard-app', STATIC_DASH);
+expressApp.use('/user', userRoutes)
+expressApp.use('/dashboard', dashboardRoutes)
 
 
-const protocolConfiguration = { 
-    path: 'COM3', 
-    baudRate: 9600
-};
+// const protocolConfiguration = { 
+//     path: 'COM3', 
+//     baudRate: 9600
+// };
 
-const port = new SerialPort(protocolConfiguration);
-const parser = port.pipe(new ReadlineParser)
+// const port = new SerialPort(protocolConfiguration);
+// const parser = port.pipe(new ReadlineParser)
 
-parser.on('data', (arData) =>{
-    let dataArray = arData.split(' ')
+// parser.on('data', (arData) =>{
+//     let dataArray = arData.split(' ')
 
-    let arduinoMessage = {
-    state : dataArray[0],
-    screen : parseInt(dataArray[2]),
-    play : parseInt(dataArray[1]),
-    value : parseInt(dataArray[3])
-    }
-    console.log(arduinoMessage);
-    io.emit('arduinoInst', arduinoMessage);
-})
+//     let arduinoMessage = {
+//     state : dataArray[0],
+//     screen : parseInt(dataArray[2]),
+//     play : parseInt(dataArray[1]),
+//     value : parseInt(dataArray[3])
+//     }
+//     console.log(arduinoMessage);
+//     io.emit('arduinoInst', arduinoMessage);
+// })
 
 const httpServer = expressApp.listen(PORT, () => {
 
     console.log(`Server is running, host http://${SERVER_IP}:${PORT}/`);
     console.table({ 
         'Client Endpoint' : `http://${SERVER_IP}:${PORT}/app`,
-        'Mupi Endpoint': `http://${SERVER_IP}:${PORT}/mupi` });
+        'Mupi Endpoint': `http://${SERVER_IP}:${PORT}/mupi`,
+        'Dashboard App Endpoint' : `http://${SERVER_IP}:${PORT}/dashboard-app` });
 });
 
 const io = new Server(httpServer, { path: '/real-time' }); 
@@ -60,9 +71,16 @@ io.on('connection', (socket) => {
     
 });
 
-let userData;
-expressApp.post('/user-data', (req, res) => {
-    userData = req.body;
-    console.log(userData);
-    // res.send({Data: `User data is: ${userData}`})
-});
+// let userData;
+
+// expressApp.post('/user-data', (req, res) => {
+//     userData = req.body;
+//     console.log(userData);
+//     // res.send({Data: `User data is: ${userData}`})
+// });
+
+// expressApp.get('/get-user', (req,res)=>{
+
+//     res.send(userData)
+
+// })
