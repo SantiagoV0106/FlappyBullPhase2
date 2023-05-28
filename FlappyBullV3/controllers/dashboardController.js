@@ -1,39 +1,29 @@
 import { fs } from "../dependencies.js";
-
-export const postIntData = (req, res) => {
-    try {
-        const intData = fs.readFileSync('./localCollection/interactions.json')
-        const jsonIntData = JSON.parse(intData)
-
-        const newInt = {
-            id : jsonIntData.interactions.length + 1,
-            location: req.body.locations,
-            date: req.body.date,
-            device: req.body.device,
-            TimeIntStarted: req.body.TimeIntStarted,
-            IntDuration: req.body.IntDuration
-        }
-
-        jsonIntData.interactions.push(newInt)
-
-        fs.writeFileSync('./localCollection/interactions.json', JSON.stringify(jsonIntData, null, 2))
-        res.status(201).send({msn : `int ${newInt.id} created`})
-
-    } catch (error) {
-        console.error(error);
-        res.status(500).send('Error adding Int');
-    }
-}
+import * as KPI from './kpiCalculations.js'
 
 export const getInt = (req, res) => {
     try {
         const userJsonData = fs.readFileSync('./localCollection/users.json')
-        const intJsonData = fs.readFileSync('./localCollection/interactions.json')
         const {users} = JSON.parse(userJsonData)
+    
+        const intJsonData = fs.readFileSync('./localCollection/interactions.json')
         const {interactions} = JSON.parse(intJsonData)
+        
+
+        //para la Bar Chart
+        const mupiInts = interactions
+        
+        const lastFiveLeads = KPI.getLastFiveLeads(users)
+        const dashtotalIntDay = KPI.countTotalInt(mupiInts)
+        const totalInteractions = KPI.totalInts(interactions)
+
+        let dashboardData = {lastFiveLeads, dashtotalIntDay, totalInteractions}
+        res.send(dashboardData)
 
 
     } catch (error) {
+        console.error(error);
+        res.status(500).send('Error reading JSON data');
         
     }
 }

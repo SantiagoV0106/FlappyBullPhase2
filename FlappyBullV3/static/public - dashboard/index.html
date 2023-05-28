@@ -1,52 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard RedBull</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Dashboard RedBull</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
-    integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
-    crossorigin="anonymous"></script>
-    <div class="sidebar">
-        <div class="top">
-            <div class="logo">
-                <i class='bx bxs-cat'></i>
-                <span>RedBull</span>
-            </div>
-            <i class="bx bx-menu" id="btnmenu"></i>
-        </div>
-        <div class="user">
-            <img src="./assets/useryes.jpg" alt="user" class="user-img">
-            <div>
-                <p class="bold"> Paco M.</p>
-                <p>Admin</p>
-            </div>
-        </div>
-        <ul>
-            <li>
-                <a href="#">
-                    <i class='bx bxs-dashboard'></i>
-                    <span class="nav-item">Dashboard</span>
-                </a>
-                <span class="tooltip">Dashboard</span>
-            </li>
-        </ul>
-    </div>
 
-    <div class="main-content">
-        <div class="container">
-            <h1>Dashboard</h1>
-            <p>Aqui dentro va todo lo que hagamos pero ya estoy cansado</p>
+<body>
+    <header class="header">
+        <div class="feplogo-container">
+            <img src="./assets/logomovil.png" alt="FEP logo" class="fep-img">
+            <p>Estero Picnic team</p>
+            <div class="icon-container">
+                <i class='bx bxs-caret-down-square'></i>
+            </div>
+        </div>
+
+        <div class="user-container">
+            <img src="./assets/Prof.png" alt="user Pic" class="user-img">
+            <div>
+                <p class="user-bold">David Giraldo</p>
+                <p class="email-light">Davidgiraldo@gmail.com</p>
+            </div>
+        </div>
+    </header>
+    <section class="sidebar">
+        <div class="logo-container">
+            <img src="assets/logo-Red-Bull.png" alt="RedBull Logo">
+        </div>
+        <div class="list-container">
+            <ul>
+                <li>
+                    <a href="#">
+                        <i class='bx bxs-dashboard'></i>
+                        <span class="nav-item">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bxs-user-pin'></i>
+                        <span class="nav-item">Leads</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <div class="status-container">
+        <div class="redbull-container">
+            <h1>Red Bull</h1>
+            <div class="status-text-container">
+                <h2>Status: Working</h2>
+                <i class='bx bxs-circle'></i>
+            </div>
+        </div>
+        <div class="inputs-container">
+            <div class="radio-inputs">
+                <label class="radio">
+                    <input type="radio" name="radio" checked="">
+                    <span class="name">Total</span>
+                </label>
+                <label class="radio">
+                    <input type="radio" name="radio">
+                    <span class="name">Thursday</span>
+                </label>
+                <label class="radio">
+                    <input type="radio" name="radio">
+                    <span class="name">Friday</span>
+                </label>
+                <label class="radio">
+                    <input type="radio" name="radio">
+                    <span class="name">Saturday</span>
+                </label>
+                <label class="radio">
+                    <input type="radio" name="radio">
+                    <span class="name">Sunday</span>
+                </label>
+            </div>
         </div>
     </div>
-    
+    <main class="main">
+        <div class="stat-container">
+            <div class="table-header">
+                <div class="table-leads">
+                    <h3>Leads</h3>
+                </div>
+                <div class="table-leads-icon">
+                    <i class='bx bx-dots-horizontal-rounded'></i>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Number</th>
+                            <th>Date</th>
+                        </tr>
+                        <tbody>
+                        </tbody>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <div class="stat-container">
+            <div class="chart-container">
+                <canvas id="myDoughnutChart"></canvas>
+            </div>
+        </div>
+        <div class="stat-container">
+            <div class="chart-container">
+                <canvas id="myBarChart"></canvas>
+            </div>
+        </div>
+        <div class="stat-container">
+            <div class="mini-header">
+                <h3>Last Update</h3>
+                <div class="icon-header">
+                    <i class='bx bx-calendar-check'></i>
+                </div>
+            </div>
+            <div class="other-data-update">
+                <p>Saturday at 11:00pm</p>
+            </div>
+        </div>
+        <div class="stat-container">
+            <div class="mini-header">
+                <h3>Mupi Interactions</h3>
+                <div class="icon-header">
+                    <i class='bx bx-station'></i>
+                </div>
+            </div>
+            <div class="other-data">
+                
+            </div>
+        </div>
+        </div>
+    </main>
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+        integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+        crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script defer src="view.js"></script>
     <script defer src="controller.js"></script>
 </body>
+
 </html>

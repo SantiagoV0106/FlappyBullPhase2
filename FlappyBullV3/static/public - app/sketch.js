@@ -4,7 +4,15 @@ let socket = io(NGROK, { path: '/real-time' });
 
 // metadatos
 
-const locations = window.location.href
+const diasSemana = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+const fechaActual = new Date();
+const diaSemana = fechaActual.getDay();
+
+const nombreDia = diasSemana[diaSemana];
+
+console.log(nombreDia);
+
 const dates = new Date().getTime()
 const dateInt = new Date(dates).toLocaleDateString()
 const device = navigator.userAgent
@@ -26,6 +34,7 @@ console.log(timeStarted);
 
 const nameInput = document.getElementById('nombre')
 const emailInput = document.getElementById('correo')
+const numberInput = document.getElementById('numero')
 const checkbox = document.getElementById('checkbox')
 const myForm = document.getElementById('maiform')
 const titulo = document.getElementById('contendor-titulo')
@@ -48,17 +57,13 @@ myForm.addEventListener('submit', (e)=>{
     e.preventDefault()
     alert('Please accept the privacy terms')
   } else {   
-
-    let user = {name : nameInput.value, email : emailInput.value}
-    userData(user);
-    
     const SendTime = new Date().getTime()
     const IntDuration = SendTime - time
     const DurationSec = IntDuration / 1000
 
-    let otherData = { locations: locations, date: dateInt, device: deviceType, TimeIntStarted: timeStarted, IntDuration : DurationSec }
-    postData(otherData)
-    
+    let user = {name : nameInput.value, email : emailInput.value, numero : numberInput.value, date : dateInt, intDay : nombreDia ,device: deviceType, TimeIntStarted: timeStarted, IntDuration : DurationSec }
+    userData(user);    
+
     
     titulo.style.display = 'none'
     form.style.display = 'none'
@@ -82,6 +87,17 @@ async function userData(user) {
 
 }
 
+
+
+/*
+Aqui va como hacer un post con metadatos para cuando toque hacerlo con el arduino
+const dates = new Date().getTime()
+const dateInt = new Date(dates).toLocaleDateString()
+const device = navigator.userAgent
+
+    let otherData = { locations: locations, date: dateInt, device: deviceType, TimeIntStarted: timeStarted, IntDuration : DurationSec }
+    postData(otherData)
+    
 async function postData(datas) {
 
   const data2 = {
@@ -95,3 +111,5 @@ async function postData(datas) {
   await fetch('/dashboard', data2)
 
 }
+
+*/

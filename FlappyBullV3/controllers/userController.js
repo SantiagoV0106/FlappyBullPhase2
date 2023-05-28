@@ -1,7 +1,7 @@
 import { fs } from "../dependencies.js";
+import { io } from '../index.js';
 
 export const postUserData = (req, res) => {
-
 try {
 
     // se lee el doc Users.json donde están los usuarios
@@ -13,11 +13,20 @@ try {
     const newUser = {
         id : jsonData.users.length + 1,
         name : req.body.name,
-        email : req.body.email
+        email : req.body.email,
+        number : req.body.numero,
+        date: req.body.date,
+        intDay : req.body.intDay,
+        device: req.body.device,
+        TimeIntStarted: req.body.TimeIntStarted,
+        IntDuration: req.body.IntDuration
+
     }
 
     // se añade el usario recien creado al "users.jons"
     jsonData.users.push(newUser)
+
+    io.emit('real-time-update', { state: true });
 
     // aqui se escribe el nuevo usario al documento "users.json"
     fs.writeFileSync('./localCollection/users.json', JSON.stringify(jsonData, null, 2))
@@ -31,6 +40,7 @@ try {
     
 }
 }
+
 
 export const getUsers = (req, res) => {
     res.send({ msn : 'Hello getting'})

@@ -1,4 +1,3 @@
-// Aqui se conecta el servidor
 const NGROK = `${window.location.hostname}`;
 let socket = io(NGROK, {
   path: '/real-time'
@@ -7,8 +6,20 @@ console.log('192.168.1.28', NGROK);
 
 let cnvWidth = 431
 let cnvHeigth = 768
-let currentMupiscreen = 0
+let currentMupiscreen = 2
 let flapMupi
+
+let intState = false
+console.log(intState);
+
+const diasSemana = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+const fechaActual = new Date();
+const diaSemana = fechaActual.getDay();
+
+const nombreDia = diasSemana[diaSemana];
+
+console.log(nombreDia);
 
 // declaro las variables del juego
 var toro
@@ -183,6 +194,7 @@ switch (currentMupiscreen) {
     break;
     
     case 2 :
+      video.style.display = 'none' 
       image(imageMupi[1], 0, 0)
       // background('red')
       // fill(255)
@@ -235,7 +247,11 @@ switch (currentMupiscreen) {
 
 
     function mouseClicked(){
-      getUser()
+      if (mouseX > 0 && mouseX < 430 && mouseY > 0 && mouseY < 768 && currentMupiscreen === 2) {
+        currentMupiscreen = 3
+        intState = true
+        itsInt()
+      }
       if (mouseX > 0 && mouseX < 430 && mouseY > 0 && mouseY < 768 && currentMupiscreen === 3) {
         console.log('Clikeado');
         toro.flap()
@@ -246,16 +262,27 @@ switch (currentMupiscreen) {
       socket.emit('game-mupi-screen', tap2play)
   
 }
+ function itsInt() {
+ if (intState !== false){
+  let newintData = {intDay : nombreDia}
+  postInt(newintData)
+  console.log('it`s a interaction!');
+ }
+ }
 
-// socket.on('current-mupi-screen',paquete1 => {
-// console.log(`Llegó el cambio de pantalla caso ${paquete1}`);
-// currentMupiscreen = paquete1
-// })
-// socket.on('mupi-game-instructions',instrucciones => {
-// console.log(`Llegaron estas instrucciones ${instrucciones}`);
-// flapMupi = instrucciones
-// toro.flap(flapMupi)
-// })
+async function postInt(newintData) { 
+    const intdata = {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newintData)
+    }
+    
+    await fetch('/int', intdata)
+    
+
+}
 
 socket.on('arduinoInst', (arduinoMessage) => {
 console.log(`Llegaron estas instrucciones ${arduinoMessage}`);
@@ -275,10 +302,3 @@ toro.flap(flapMupi)
 
 
 
-async function getUser() {
-  
-  const res = await fetch('/get-user')
-  const data =  await res.json()
-  console.log(data);
-
-}

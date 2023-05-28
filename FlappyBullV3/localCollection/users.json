@@ -2,8 +2,80 @@
   "users": [
     {
       "id": 1,
-      "name": "Juliana",
-      "email": "juliHink@hotmail.com"
+      "name": "Santiago Velasco",
+      "email": "velascosantiago3@gmail.com",
+      "number": "3178266279",
+      "date": "25/5/2023",
+      "intDay": "Thursday",
+      "device": "Android",
+      "TimeIntStarted": "14:50:45",
+      "IntDuration": 53.656
+    },
+    {
+      "id": 2,
+      "name": "Lida Loaiza ",
+      "email": "lidalee34@hotmail.com",
+      "number": "3126495528",
+      "date": "25/5/2023",
+      "intDay": "Thursday",
+      "device": "Android",
+      "TimeIntStarted": "20:53:13",
+      "IntDuration": 499.457
+    },
+    {
+      "id": 3,
+      "name": "Sandra",
+      "email": "carry100@gmail.com",
+      "number": "3186296114",
+      "date": "25/5/2023",
+      "intDay": "Thursday",
+      "device": "Android",
+      "TimeIntStarted": "21:01:34",
+      "IntDuration": 5630.182
+    },
+    {
+      "id": 4,
+      "name": "Fanor",
+      "email": "gerencia@transvego.com",
+      "number": "3122016491",
+      "date": "25/5/2023",
+      "intDay": "Thursday",
+      "device": "Android",
+      "TimeIntStarted": "22:35:25",
+      "IntDuration": 48.855
+    },
+    {
+      "id": 5,
+      "name": "Juliana Hincapié ",
+      "email": "julihink03@hotmail.com",
+      "number": "3156249815",
+      "date": "25/5/2023",
+      "intDay": "Thursday",
+      "device": "Android",
+      "TimeIntStarted": "22:36:15",
+      "IntDuration": 473.44
+    },
+    {
+      "id": 6,
+      "name": "Rossy Hurtado",
+      "email": "rosslov@hotmail.com",
+      "number": "3185267921",
+      "date": "28/5/2023",
+      "intDay": "Sunday",
+      "device": "Android",
+      "TimeIntStarted": "17:01:36",
+      "IntDuration": 58.973
+    },
+    {
+      "id": 7,
+      "name": "Pepito Pérez ",
+      "email": "pepito22@gmail.com",
+      "number": "3125284658",
+      "date": "28/5/2023",
+      "intDay": "Sunday",
+      "device": "Android",
+      "TimeIntStarted": "17:03:26",
+      "IntDuration": 23.757
     }
   ]
 }

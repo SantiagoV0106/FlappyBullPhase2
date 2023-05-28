@@ -1,5 +1,6 @@
-import { express, Server, cors, os, SerialPort, ReadlineParser, dotenv} from './dependencies.js'
+import { express, cors, SocketIOServer, SerialPort, ReadlineParser, dotenv} from './dependencies.js'
 import userRoutes from './routes/userRoutes.js'
+import intRoutes from './routes/intRoutes.js'
 import dashboardRoutes from './routes/dashboardRoutes.js'
 
 
@@ -7,17 +8,6 @@ const SERVER_IP = "192.168.1.28";//CAMBIAR IP SIEMPRE
 dotenv.config()
 const PORT = process.env.PORT;
 const expressApp = express(); 
-const STATIC_APP = express.static('./static/public - app')
-const STATIC_MUPI = express.static('./static/public - mupi')
-const STATIC_DASH = express.static('./static/public - dashboard')
-
-expressApp.use(cors({ origin: "*" }));
-expressApp.use(express.json()) 
-expressApp.use('/app', STATIC_APP);
-expressApp.use('/mupi', STATIC_MUPI);
-expressApp.use('/dashboard-app', STATIC_DASH);
-expressApp.use('/user', userRoutes)
-expressApp.use('/dashboard', dashboardRoutes)
 
 
 // const protocolConfiguration = { 
@@ -47,40 +37,41 @@ const httpServer = expressApp.listen(PORT, () => {
     console.table({ 
         'Client Endpoint' : `http://${SERVER_IP}:${PORT}/app`,
         'Mupi Endpoint': `http://${SERVER_IP}:${PORT}/mupi`,
-        'Dashboard App Endpoint' : `http://${SERVER_IP}:${PORT}/dashboard-app` });
+        'Dashboard App Endpoint' : `http://localhost:${PORT}/dashboard-app` });
 });
 
-const io = new Server(httpServer, { path: '/real-time' }); 
+const io = new SocketIOServer(httpServer, { path: '/real-time' });
+
+const STATIC_APP = express.static('./static/public - app')
+const STATIC_MUPI = express.static('./static/public - mupi')
+const STATIC_DASH = express.static('./static/public - dashboard')
+
+expressApp.use(express.json()) 
+expressApp.use(cors({ origin: "*" }));
+expressApp.use('/app', STATIC_APP);
+expressApp.use('/mupi', STATIC_MUPI);
+expressApp.use('/dashboard-app', STATIC_DASH);
+expressApp.use('/user', userRoutes)
+expressApp.use('/int', intRoutes)
+expressApp.use('/dashboard', dashboardRoutes) 
 
 io.on('connection', (socket) => {
     console.log('Conectado', socket.id);
 
-    // socket.on('mupi-screen', paquete1 =>{
-    //     console.log(`Se envio el cambio de pantalla para el mupi case ${paquete1}`)
-    //     socket.broadcast.emit('current-mupi-screen',paquete1);
-    // })
-    // socket.on('game-mupi-screen', tap2play =>{
-       
-    //     socket.broadcast.emit('game-phone-screen',tap2play);
-    // })
-    // socket.on('game-instructions', instrucciones =>{
-    //     console.log(`El usario ya está jugando. Está llegando este valor ${instrucciones}`)
-    //     socket.broadcast.emit('mupi-game-instructions',instrucciones);
-    // })
+    console.log(`Client ${socket.id} connected.`);
+    
+      // Custom event
+  socket.on('customEvent', (data) => {
+    console.log('Received custom event:', data);
+  });
+
+  // Disconnect event
+  socket.on('disconnect', () => {
+    console.log(`Client ${socket.id} disconnect.`);
+  });
    
     
 });
 
-// let userData;
 
-// expressApp.post('/user-data', (req, res) => {
-//     userData = req.body;
-//     console.log(userData);
-//     // res.send({Data: `User data is: ${userData}`})
-// });
-
-// expressApp.get('/get-user', (req,res)=>{
-
-//     res.send(userData)
-
-// })
+export { io };
