@@ -13,19 +13,20 @@ function controller(view) {
     (async function getDashboardData() {
         const request = await fetch(`${URL}/dashboard`);
         const data = await request.json();
-        kpi = data;
+        const kpi = data;
         console.log(kpi);
-        view.updateBarChart(kpi.dashtotalIntDay)
         view.updateTable(kpi.lastFiveLeads);
+        view.updateBarChart(kpi.dashtotalIntDay)
         view.updateMupiInt(kpi.totalInteractions);
     })();
-
+    
     const updateRealTime = async () => {
         const request = await fetch(`${URL}/dashboard`);
         const data = await request.json();
         const kpi = data;
         view.updateTable(kpi.lastFiveLeads);
-        view.updateTable(kpi.lastFiveLeads);
+        view.updateBarChart(kpi.dashtotalIntDay)
+        view.updateMupiInt(kpi.totalInteractions);
         console.log('Hello from updateRealTime');
     }
 

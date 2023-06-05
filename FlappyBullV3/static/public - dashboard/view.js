@@ -110,7 +110,7 @@ class View {
 
     updateTable(newData) {
         console.log(newData);
-       // View.fiveLeadsTable.innerHTML = '';
+       View.fiveLeadsTable.innerHTML = '';
         newData.forEach(element => {
             let row = document.createElement('tr');
             row.innerHTML =
