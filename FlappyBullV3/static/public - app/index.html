@@ -6,40 +6,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App</title>
-   <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
         integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
         crossorigin="anonymous"></script>
-    
-       <div id="contendor-titulo">
-        <img src="./assets/logo-Red-Bull.png" alt="Titulo del formulario">
-        <p><span class="texto1"> Fill this data</span><br><span class="texto2">to get your reward</span></p>
-       </div>
-       
-       <div id="contendor-form">
-           <form class="mi-form" id="maiform">
-               <input type="text" name="Name" id="nombre" placeholder="Name">
-               <input type="email" name="Email" id="correo" placeholder="Email">
-               <input type="number" name="Number" id="numero" placeholder="Number">
-               <label class="material-checkbox">
-                <input type="checkbox" id="checkbox">
-                <span class="checkmark"></span>
-                I agree to the data privacy policy
-              </label>
-               <button type="submit" class="button" id="submit" disabled>Send</button>
-            </form>            
+
+    <div class="main-container">
+        <div class="img-container">
+            <img src="./assets/logo-Red-Bull.png" alt="RedBull Logo">
         </div>
-        
-<div id="contendor-final" style="display: none;">
-    <p><span class="textofinal1"> Thank you for playing</span><br><span class="textofinal2">See you soon</span></p>
-    <img src="./assets/logo-Red-Bull.png" alt="Imagen Final">
+        <div class="title-container">
+            <h1>
+                Fill this data to get your reward!
+            </h1>
+        </div>
+        <form class="mi-form" id="maiform">
+            <div class="flavor-title">
+                <h2>Choose the flavor you want!</h2>
+            </div>
+            <div class="flavor-container">
+                <label class="material-checkbox">
+                    <input type="checkbox" id="watermelon-checkbox">
+                    <span class="checkmark"></span>
+                    Watermelon
+                </label>
+                <label class="material-checkbox">
+                    <input type="checkbox"  id="blueberry-checkbox">
+                    <span class="checkmark"></span>
+                    Blueberry
+                </label>
+            </div>
+            <input type="text" name="Name" id="nombre" placeholder="Name">
+            <input type="email" name="Email" id="correo" placeholder="Email">
+            <input type="number" name="Number" id="numero" placeholder="Number">
+                <label class="agree-checkbox">
+                    <input type="checkbox" id="checkbox">
+                    <span class="checkmark"></span>
+                    I agree to the data privacy policy
+                </label>          
+            <button type="submit" class="button" id="submit" disabled>Send</button>
+        </form>
     </div>
-        
-<script src="./sketch.js"></script>
-        
+
+    <script src="./sketch.js"></script>
+
 </body>
 
 </html>

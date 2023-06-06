@@ -57,47 +57,15 @@
     },
     {
       "id": 6,
-      "name": "Rossy Hurtado",
-      "email": "rosslov@hotmail.com",
-      "number": "3185267921",
-      "date": "28/5/2023",
-      "intDay": "Sunday",
+      "name": "Pepita Pro",
+      "email": "pepito22pro@gmail.com",
+      "number": "3124561235",
+      "flavor": "Watermelon",
+      "date": "6/6/2023",
+      "intDay": "Tuesday",
       "device": "Android",
-      "TimeIntStarted": "17:01:36",
-      "IntDuration": 58.973
-    },
-    {
-      "id": 7,
-      "name": "Pepito Pérez ",
-      "email": "pepito22@gmail.com",
-      "number": "3125284658",
-      "date": "28/5/2023",
-      "intDay": "Sunday",
-      "device": "Android",
-      "TimeIntStarted": "17:03:26",
-      "IntDuration": 23.757
-    },
-    {
-      "id": 8,
-      "name": "Santiago Pro",
-      "email": "prosanti@hormail.com",
-      "number": "3465649448",
-      "date": "5/6/2023",
-      "intDay": "Monday",
-      "device": "Android",
-      "TimeIntStarted": "14:46:23",
-      "IntDuration": 127.382
-    },
-    {
-      "id": 9,
-      "name": "Pepito Pro",
-      "email": "propepito22@hotmail.com",
-      "number": "3132464676",
-      "date": "5/6/2023",
-      "intDay": "Monday",
-      "device": "Android",
-      "TimeIntStarted": "14:48:32",
-      "IntDuration": 72.373
+      "TimeIntStarted": "00:29:59",
+      "IntDuration": 22.266
     }
   ]
 }

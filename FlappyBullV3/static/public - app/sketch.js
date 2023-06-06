@@ -18,13 +18,13 @@ const dateInt = new Date(dates).toLocaleDateString()
 const device = navigator.userAgent
 let deviceType;
 if (/iPhone|iPad|iPod/.test(device)) {
-    deviceType = 'iOS';
+  deviceType = 'iOS';
 } else if (/Android/.test(device)) {
-    deviceType = 'Android';
-} else if (/windows/){
-    deviceType = 'Windows';
+  deviceType = 'Android';
+} else if (/windows/) {
+  deviceType = 'Windows';
 } else {
-    deviceType = 'Other'
+  deviceType = 'Other'
 }
 const time = new Date().getTime()
 const timeStarted = new Date(time).toLocaleTimeString()
@@ -42,8 +42,28 @@ const form = document.getElementById('contendor-form')
 const final = document.getElementById('contendor-final')
 const sb = document.getElementById('submit')
 
+// sabores
+const watermelon = document.getElementById('watermelon-checkbox')
+const blueberry = document.getElementById('blueberry-checkbox')
 
-checkbox.addEventListener('change', ()=> { 
+let flavorCB
+
+watermelon.addEventListener('change', ()=> {
+  if (watermelon.checked && !blueberry.checked) {
+    flavorCB = "Watermelon"
+    console.log('watermelon checked');
+  }
+})
+
+blueberry.addEventListener('change', ()=> {
+  if (!watermelon.checked && blueberry.checked) {
+    flavorCB = "Blueberry"
+    console.log('blueberry checked');
+  }
+})
+
+
+checkbox.addEventListener('change', () => {
   if (checkbox.checked) {
     sb.removeAttribute('disabled')
   } else {
@@ -52,24 +72,32 @@ checkbox.addEventListener('change', ()=> {
 })
 
 
-myForm.addEventListener('submit', (e)=>{
+myForm.addEventListener('submit', (e) => {
   if (!checkbox.checked) {
     e.preventDefault()
     alert('Please accept the privacy terms')
-  } else {   
+
+  } else {
     const SendTime = new Date().getTime()
     const IntDuration = SendTime - time
     const DurationSec = IntDuration / 1000
 
-    let user = {name : nameInput.value, email : emailInput.value, numero : numberInput.value, date : dateInt, intDay : nombreDia ,device: deviceType, TimeIntStarted: timeStarted, IntDuration : DurationSec }
-    userData(user);    
+    let user = {
+      name: nameInput.value,
+      email: emailInput.value,
+      numero: numberInput.value,
+      flavor: flavorCB,
+      date: dateInt,
+      intDay: nombreDia,
+      device: deviceType,
+      TimeIntStarted: timeStarted,
+      IntDuration: DurationSec
+    }
 
-    
-    titulo.style.display = 'none'
-    form.style.display = 'none'
-    final.style.display = 'flex'
+    console.log(flavorCB);
+    userData(user);
     console.log('Enviado');
-    
+
   }
 })
 
@@ -77,11 +105,11 @@ myForm.addEventListener('submit', (e)=>{
 
 async function userData(user) {
   const data = {
-      method: 'POST',
-      headers: {
-          "Content-Type" : "application/json"
-      },
-      body: JSON.stringify(user)
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(user)
   }
   await fetch('/user', data);
 

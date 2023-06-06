@@ -15,6 +15,7 @@ try {
         name : req.body.name,
         email : req.body.email,
         number : req.body.numero,
+        flavor : req.body.flavor,
         date: req.body.date,
         intDay : req.body.intDay,
         device: req.body.device,
