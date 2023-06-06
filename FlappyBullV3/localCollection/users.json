@@ -35,6 +35,18 @@
       "device": "Android",
       "TimeIntStarted": "12:33:13",
       "IntDuration": 16.379
+    },
+    {
+      "id": 4,
+      "name": "Daniela Viafara",
+      "email": "daniv0104@gmail.com",
+      "number": "3124567890",
+      "flavor": "Watermelon",
+      "date": "6/6/2023",
+      "intDay": "Tuesday",
+      "device": "Windows",
+      "TimeIntStarted": "1:40:48 p. m.",
+      "IntDuration": 33.679
     }
   ]
 }

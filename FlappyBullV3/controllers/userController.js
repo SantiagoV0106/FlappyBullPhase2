@@ -1,5 +1,6 @@
 import { fs } from "../dependencies.js";
 import { io } from '../index.js';
+import fireStoreDB from "../firebase-config.js";
 
 export const postUserData = (req, res) => {
 try {
@@ -28,6 +29,8 @@ try {
     jsonData.users.push(newUser)
 
     io.emit('real-time-update', { state: true });
+
+    fireStoreDB.addNewDoc(newUser, 'Leads')
 
     // aqui se escribe el nuevo usario al documento "users.json"
     fs.writeFileSync('./localCollection/users.json', JSON.stringify(jsonData, null, 2))

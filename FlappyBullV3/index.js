@@ -2,6 +2,7 @@ import { express, cors, SocketIOServer, SerialPort, ReadlineParser, dotenv} from
 import userRoutes from './routes/userRoutes.js'
 import intRoutes from './routes/intRoutes.js'
 import dashboardRoutes from './routes/dashboardRoutes.js'
+import fireStoreDB from './firebase-config.js'
 
 
 const SERVER_IP = "192.168.1.28";//CAMBIAR IP SIEMPRE
@@ -72,6 +73,10 @@ io.on('connection', (socket) => {
    
     
 });
+
+fireStoreDB.updateRealTime('Leads', ()=> {
+  io.emit('real-time-firebase', {state : 'Using onSnapshot'})
+})
 
 
 export { io };

@@ -1,5 +1,6 @@
 import { fs } from "../dependencies.js";
 import { io } from '../index.js';
+import fireStoreDB from "../firebase-config.js";
 
 export const postIntData = (req, res) => {
     try {
@@ -19,6 +20,9 @@ export const postIntData = (req, res) => {
         jsonIntData.interactions.push(newInt)
     
         io.emit('real-time-update', { state: true });
+
+        fireStoreDB.addNewDoc(newInt, 'Interactions')
+
     
         // aqui se escribe el nuevo usario al documento "interactions.json"
         fs.writeFileSync('./localCollection/interactions.json', JSON.stringify(jsonIntData, null, 2))
