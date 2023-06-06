@@ -18,6 +18,7 @@ function controller(view) {
         view.updateTable(kpi.lastFiveLeads);
         view.updateBarChart(kpi.dashtotalIntDay)
         view.updateMupiInt(kpi.totalInteractions);
+        view.updateDonutChart(kpi.chosenFlavor)
     })();
     
     const updateRealTime = async () => {
@@ -27,6 +28,7 @@ function controller(view) {
         view.updateTable(kpi.lastFiveLeads);
         view.updateBarChart(kpi.dashtotalIntDay)
         view.updateMupiInt(kpi.totalInteractions);
+        view.updateDonutChart(kpi.chosenFlavor)
         console.log('Hello from updateRealTime');
     }
 

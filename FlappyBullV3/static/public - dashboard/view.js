@@ -85,11 +85,24 @@ class View {
         this.barChart = new Chart(View.barItem, config);
     }
 
+    updateDonutChart(newDataset) {
+        const label = Object.keys(newDataset)
+        const sabores = Object.values(newDataset)
+
+        console.log(label);
+        console.log(sabores);
+
+        this.doughnutChart.data.labels = label;
+        this.doughnutChart.data.datasets[0].data = sabores;
+        this.doughnutChart.update();
+    }
+
+
     getDonutChart() {
         const config = {
             type: 'doughnut',
             data: {
-                labels: ['Watermelon', 'Blue Berry'],
+                labels: ['Watermelon', 'BlueBerry'],
                 datasets: [{
                     label: 'RedBull popProduct',
                     data: [50, 10],
@@ -132,15 +145,6 @@ class View {
        `
        View.otherData.appendChild(p)
     }
-
-    updateDoughnutChart(newDataset) {
-        //console.log(this.doughnutChart);
-        //console.log('Hey within Update doughnutChart');
-        this.doughnutChart.data.datasets[0].data = newDataset;
-        //this.doughnutChart.data.labels = ;
-        this.doughnutChart.update();
-    }
-
 
     render() {
         this.getDonutChart()

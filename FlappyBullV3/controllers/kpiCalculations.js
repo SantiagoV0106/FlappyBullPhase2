@@ -18,3 +18,14 @@ export function totalInts(interactions) {
     return todasLasInts
     
 }
+
+export function getFlavors(flavors) {
+    const flavorCounts = {}
+
+    for (let i = 0; i < flavors.length; i++) {
+        const RBFlavors = flavors[i].flavor;
+        flavorCounts[RBFlavors] = (flavorCounts[RBFlavors] || 0) + 1
+    }
+    
+    return flavorCounts
+}

@@ -12,12 +12,16 @@ export const getInt = (req, res) => {
 
         //para la Bar Chart
         const mupiInts = interactions
+
+        // para el donut chart
+        const flavors = users
         
         const lastFiveLeads = KPI.getLastFiveLeads(users)
+        const chosenFlavor = KPI.getFlavors(flavors)
         const dashtotalIntDay = KPI.countTotalInt(mupiInts)
         const totalInteractions = KPI.totalInts(interactions)
 
-        let dashboardData = {lastFiveLeads, dashtotalIntDay, totalInteractions}
+        let dashboardData = {lastFiveLeads, dashtotalIntDay, totalInteractions, chosenFlavor}
         res.send(dashboardData)
 
 

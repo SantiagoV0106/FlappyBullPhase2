@@ -4,7 +4,7 @@ import { io } from '../index.js';
 export const postIntData = (req, res) => {
     try {
     
-        // se lee el doc Users.json donde están los usuarios
+        // se lee el doc Users.json donde están las interacciones
         const intData = fs.readFileSync('./localCollection/interactions.json')
         const jsonIntData = JSON.parse(intData)
     
