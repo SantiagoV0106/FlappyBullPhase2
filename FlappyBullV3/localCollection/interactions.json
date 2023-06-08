@@ -2,35 +2,15 @@
   "interactions": [
     {
       "id": 1,
-      "intDay": "Thursday"
+      "intDay": "Wednesday"
     },
     {
       "id": 2,
-      "intDay": "Thursday"
+      "intDay": "Wednesday"
     },
     {
       "id": 3,
-      "intDay": "Friday"
-    },
-    {
-      "id": 4,
-      "intDay": "Friday"
-    },
-    {
-      "id": 5,
-      "intDay": "Saturday"
-    },
-    {
-      "id": 6,
-      "intDay": "Sunday"
-    },
-    {
-      "id": 7,
-      "intDay": "Sunday"
-    },
-    {
-      "id": 8,
-      "intDay": "Tuesday"
+      "intDay": "Wednesday"
     }
   ]
 }

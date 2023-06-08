@@ -11,26 +11,26 @@ const PORT = process.env.PORT;
 const expressApp = express(); 
 
 
-// const protocolConfiguration = { 
-//     path: 'COM3', 
-//     baudRate: 9600
-// };
+const protocolConfiguration = { 
+    path: 'COM3', 
+    baudRate: 9600
+};
 
-// const port = new SerialPort(protocolConfiguration);
-// const parser = port.pipe(new ReadlineParser)
+const port = new SerialPort(protocolConfiguration);
+const parser = port.pipe(new ReadlineParser)
 
-// parser.on('data', (arData) =>{
-//     let dataArray = arData.split(' ')
+parser.on('data', (arData) =>{
+    let dataArray = arData.split(' ')
 
-//     let arduinoMessage = {
-//     state : dataArray[0],
-//     screen : parseInt(dataArray[2]),
-//     play : parseInt(dataArray[1]),
-//     value : parseInt(dataArray[3])
-//     }
-//     console.log(arduinoMessage);
-//     io.emit('arduinoInst', arduinoMessage);
-// })
+    let arduinoMessage = {
+    state : dataArray[0],
+    screen : parseInt(dataArray[2]),
+    play : parseInt(dataArray[1]),
+    value : parseInt(dataArray[3])
+    }
+    console.log(arduinoMessage);
+    io.emit('arduinoInst', arduinoMessage);
+})
 
 const httpServer = expressApp.listen(PORT, () => {
 

@@ -2,51 +2,39 @@
   "users": [
     {
       "id": 1,
-      "name": "Santiago Velasco ",
+      "name": "Santiago Velasco",
       "email": "velascosantiago3@gmail.com",
       "number": "3178266279",
       "flavor": "Watermelon",
-      "date": "6/6/2023",
-      "intDay": "Tuesday",
+      "date": "7/6/2023",
+      "intDay": "Wednesday",
       "device": "Android",
-      "TimeIntStarted": "12:31:30",
-      "IntDuration": 29.525
+      "TimeIntStarted": "15:50:19",
+      "IntDuration": 134.73
     },
     {
       "id": 2,
-      "name": "Juliana Hincapié ",
-      "email": "julihink03@hotmail.com",
-      "number": "3146245895",
+      "name": "Lida Loaiza ",
+      "email": "lidalee34@hotmail.com",
+      "number": "3124567890",
       "flavor": "Blueberry",
-      "date": "6/6/2023",
-      "intDay": "Tuesday",
+      "date": "7/6/2023",
+      "intDay": "Wednesday",
       "device": "Android",
-      "TimeIntStarted": "12:32:00",
-      "IntDuration": 29.861
+      "TimeIntStarted": "15:52:45",
+      "IntDuration": 48.011
     },
     {
       "id": 3,
-      "name": "Lida Loaiza ",
-      "email": "lidalee34@hotmail.com",
-      "number": "3124564895",
-      "flavor": "Watermelon",
-      "date": "6/6/2023",
-      "intDay": "Tuesday",
-      "device": "Android",
-      "TimeIntStarted": "12:33:13",
-      "IntDuration": 16.379
-    },
-    {
-      "id": 4,
       "name": "Daniela Viafara",
-      "email": "daniv0104@gmail.com",
-      "number": "3124567890",
-      "flavor": "Watermelon",
-      "date": "6/6/2023",
-      "intDay": "Tuesday",
-      "device": "Windows",
-      "TimeIntStarted": "1:40:48 p. m.",
-      "IntDuration": 33.679
+      "email": "daniv33@gmail.com",
+      "number": "3154267894",
+      "flavor": "Blueberry",
+      "date": "7/6/2023",
+      "intDay": "Wednesday",
+      "device": "Android",
+      "TimeIntStarted": "19:55:38",
+      "IntDuration": 58.534
     }
   ]
 }
