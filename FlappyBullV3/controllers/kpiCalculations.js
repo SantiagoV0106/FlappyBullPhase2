@@ -2,6 +2,11 @@ export function getLastFiveLeads (users) {
     return users.slice(-5)
 }
 
+export function allLeads(users) {
+    const allLeads = users
+    return allLeads    
+}
+
 export function countTotalInt(mupiInts) {
    const dayCounts = {}
 

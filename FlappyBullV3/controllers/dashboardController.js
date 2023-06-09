@@ -16,12 +16,13 @@ export const getInt = (req, res) => {
         // para el donut chart
         const flavors = users
         
+        const allLeads = KPI.allLeads(users)
         const lastFiveLeads = KPI.getLastFiveLeads(users)
         const chosenFlavor = KPI.getFlavors(flavors)
         const dashtotalIntDay = KPI.countTotalInt(mupiInts)
         const totalInteractions = KPI.totalInts(interactions)
 
-        let dashboardData = {lastFiveLeads, dashtotalIntDay, totalInteractions, chosenFlavor}
+        let dashboardData = {lastFiveLeads, dashtotalIntDay, totalInteractions, chosenFlavor, allLeads}
         res.send(dashboardData)
 
 

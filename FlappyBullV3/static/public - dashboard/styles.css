@@ -121,6 +121,23 @@ body {
   "c3 c3 c3 c5";
 }
 
+.leads-main { 
+  background-color: rgba(8, 10, 27, 1);
+  grid-area: main;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 25px;
+
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: 
+ "l1 l1 l1"
+ "l1 l1 l1"
+ "l1 l1 l1";
+}
+
 
 .stat-container:nth-child(1) {
   grid-area: c1;
@@ -192,6 +209,12 @@ body {
   border-radius: 10px;
   background-color: #121426;
   max-height: 400px;
+  box-shadow: 0 0 0px 1px rgba(226, 27, 77, 0.5);
+}
+.leads-container {
+  grid-area: l1;
+  border-radius: 10px;
+  background-color: #121426;
   box-shadow: 0 0 0px 1px rgba(226, 27, 77, 0.5);
 }
 

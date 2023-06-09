@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Dashboard RedBull</title>
+    <title>Dashboard Leads</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -35,7 +35,7 @@
         <div class="list-container">
             <ul>
                 <li>
-                    <a href="#">
+                    <a href="./index.html">
                         <i class='bx bxs-dashboard'></i>
                         <span class="nav-item">Dashboard</span>
                     </a>
@@ -82,71 +82,40 @@
             </div>
         </div>
     </div>
-    <main class="main">
-        <div class="stat-container">
-            <div class="table-header">
-                <div class="table-leads">
-                    <h3>Leads</h3>
-                </div>
-                <div class="table-leads-icon">
-                    <i class='bx bx-dots-horizontal-rounded'></i>
-                </div>
+    <main class="leads-main">
+       <div class="leads-container">
+        <div class="table-header">
+            <div class="table-leads">
+                <h3>Leads</h3>
             </div>
-            <div class="table-responsive">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Number</th>
-                            <th>Date</th>
-                        </tr>
-                        <tbody>
-                        </tbody>
-                    </thead>
-                </table>
+            <div class="table-leads-icon">
+                <i class='bx bx-dots-horizontal-rounded'></i>
             </div>
         </div>
-        <div class="stat-container">
-            <div class="chart-container">
-                <canvas id="myDoughnutChart"></canvas>
-            </div>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Number</th>
+                        <th>Flavor</th>
+                        <th>Date</th>
+                        <th>LeadDay</th>
+                        <th>Device</th>
+                    </tr>
+                    <tbody>
+                    </tbody>
+                </thead>
+            </table>
         </div>
-        <div class="stat-container">
-            <div class="chart-container">
-                <canvas id="myBarChart"></canvas>
-            </div>
-        </div>
-        <div class="stat-container">
-            <div class="mini-header">
-                <h3>Last Update</h3>
-                <div class="icon-header">
-                    <i class='bx bx-calendar-check'></i>
-                </div>
-            </div>
-            <div class="other-data-update">
-                <p>Saturday at 11:00pm</p>
-            </div>
-        </div>
-        <div class="stat-container">
-            <div class="mini-header">
-                <h3>Mupi Interactions</h3>
-                <div class="icon-header">
-                    <i class='bx bx-station'></i>
-                </div>
-            </div>
-            <div class="other-data">
-                
-            </div>
-        </div>
-        </div>
+       </div>
     </main>
     <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
         integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
         crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script defer src="view.js"></script>
-    <script defer src="controller.js"></script>
+    <script defer src="viewLeads.js"></script>
+    <script defer src="leadControlles.js"></script>
 </body>
 
 </html>
