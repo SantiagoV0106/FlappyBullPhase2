@@ -35,6 +35,30 @@
       "device": "Android",
       "TimeIntStarted": "19:55:38",
       "IntDuration": 58.534
+    },
+    {
+      "id": 4,
+      "name": "David Giraldo",
+      "email": "davidprof33@gmail.com",
+      "number": "3214562345",
+      "flavor": "Watermelon",
+      "date": "8/6/2023",
+      "intDay": "Thursday",
+      "device": "Windows",
+      "TimeIntStarted": "6:57:02 p. m.",
+      "IntDuration": 286.924
+    },
+    {
+      "id": 5,
+      "name": "Richard Delgado",
+      "email": "richard22@gmail.com",
+      "number": "3154267987",
+      "flavor": "Watermelon",
+      "date": "8/6/2023",
+      "intDay": "Thursday",
+      "device": "Android",
+      "TimeIntStarted": "19:54:28",
+      "IntDuration": 35.369
     }
   ]
 }

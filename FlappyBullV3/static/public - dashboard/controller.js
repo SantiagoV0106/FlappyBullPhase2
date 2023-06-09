@@ -1,5 +1,3 @@
-//const NGROK = `${window.location.hostname}`;
-//console.log('192.168.1.28', NGROK);
 const view = new View()
 const HOST = window.location.hostname;
 const PROTOCOL = window.location.protocol;

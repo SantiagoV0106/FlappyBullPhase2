@@ -21,7 +21,7 @@ class FireStoreDB {
 
     constructor(firebaseAppInstance) {
         if (FireStoreDB.instance) {
-            return FiresStoreDB.instance
+            return FireStoreDB.instance
         }
 
         this.database = getFirestore(firebaseAppInstance)
